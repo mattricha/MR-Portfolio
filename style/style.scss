@@ -1,0 +1,462 @@
+/*
+Theme Name: MR Portfolio
+Theme URL: portfolio.matt-ric.com
+Description: custom portfolio theme
+Version: 1.0
+Author: Matthieu Richard
+Author URL: portfolio.matt-ric.com
+Tags: portfolio
+*/
+
+
+
+/************************************
+               IMPORTS
+************************************/
+
+
+@import url(http://fonts.googleapis.com/css?family=Questrial);
+
+
+/************************************
+              VARIABLES
+************************************/
+
+
+$font-content: 'Questrial', sans-serif !important;
+$font-size: 14px;
+$xs-font-size: 10px;
+$sm-font-size: 12px;
+$md-font-size: 14px;
+$lg-font-size: 18px;
+$xl-font-size: 24px;
+$xxl-font-size: 30px;
+
+$dark-color: #121212;
+$light-color: #ffffff;
+$light-bgcolor: #cccccc;
+$lightdark-bgcolor: #222222;
+
+$primary-text-color: #121212;
+$secondary-text-color: #ffffff;
+$md-white-text-color: #bbbbbb;
+$inactive-text-color: #dedede;
+$inactive-color-dark: #a8a8a8;
+
+$default-padding: 40px;
+$lg-padding: 30px;
+$md-padding: 20px;
+$sm-padding: 10px;
+$xs-padding: 5px;
+$xxs-padding: 2px;
+$default-margin: 40px;
+$md-margin: 20px;
+$sm-margin: 10px;
+$xs-margin: 5px;
+$default-radius: 10px;
+
+$content-width: 1000px;
+$lg-media-width: 992px;
+$md-media-width: 900px;
+$sm-media-width: 768px;
+$xs-media-width: 500px;
+
+$footer-height: 25px;
+
+$zindex-top: 10000;
+$zindex-overlay: 11000;
+
+
+/************************************
+               MIXINS
+************************************/
+
+
+@mixin default-shadow{
+    -moz-box-shadow: 0px 0px 10px 0px #000000;
+    -webkit-box-shadow: 0px 0px 10px 0px #000000;
+    -o-box-shadow: 0px 0px 10px 0px #000000;
+    box-shadow: 0px 0px 10px 0px #000000;
+    filter:progid:DXImageTransform.Microsoft.Shadow(color=#000000, Direction=NaN, Strength=10);
+}
+
+@mixin light-shadow{
+    -moz-box-shadow: 0px 0px 10px 0px #cfcfcf;
+    -webkit-box-shadow: 0px 0px 10px 0px #cfcfcf;
+    -o-box-shadow: 0px 0px 10px 0px #cfcfcf;
+    box-shadow: 0px 0px 10px 0px #cfcfcf;
+    filter:progid:DXImageTransform.Microsoft.Shadow(color=#cfcfcf, Direction=NaN, Strength=10);
+}
+
+@mixin medium-shadow{
+    -moz-box-shadow: 0px 0px 15px 0px #333333;
+    -webkit-box-shadow: 0px 0px 15px 0px #333333;
+    -o-box-shadow: 0px 0px 15px 0px #333333;
+    box-shadow: 0px 0px 15px 0px #333333;
+    filter:progid:DXImageTransform.Microsoft.Shadow(color=#333333, Direction=NaN, Strength=15);
+}
+
+@mixin large-shadow{
+    -moz-box-shadow: 0px 0px 100px 0px #000000;
+    -webkit-box-shadow: 0px 0px 100px 0px #000000;
+    -o-box-shadow: 0px 0px 100px 0px #000000;
+    box-shadow: 0px 0px 100px 0px #000000;
+    filter:progid:DXImageTransform.Microsoft.Shadow(color=#000000, Direction=NaN, Strength=10);
+}
+
+@mixin box-shadow{
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+
+@mixin right-side-shadow{
+    -webkit-box-shadow: 15px 0px 34px -26px rgba(0,0,0,0.75);
+    -moz-box-shadow: 15px 0px 34px -26px rgba(0,0,0,0.75);
+    box-shadow: 15px 0px 34px -26px rgba(0,0,0,0.75);
+}
+
+@mixin no-shadow{
+    -webkit-box-shadow: 0px 0px 0px 0px rgba(255,255,255,0);
+    -moz-box-shadow: 0px 0px 0px 0px rgba(255,255,255,0);
+    box-shadow: 0px 0px 0px 0px rgba(255,255,255,0);
+}
+
+@mixin default-radius{
+    border-radius: $default-radius $default-radius $default-radius $default-radius;
+    -moz-border-radius: $default-radius $default-radius $default-radius $default-radius;
+    -webkit-border-radius: $default-radius $default-radius $default-radius $default-radius;
+}
+
+@mixin no-radius{
+    border-radius: 0 0 0 0;
+    -moz-border-radius: 0 0 0 0;
+    -webkit-border-radius: 0 0 0 0;
+}
+
+
+@mixin content-background-radius{
+    border-radius: $default-radius $default-radius 0 0;
+    -moz-border-radius: $default-radius $default-radius 0 0;
+    -webkit-border-radius: $default-radius $default-radius 0 0;
+}
+
+@mixin avatar-sm-image-radius{
+    border-radius: 15px 15px 15px 15px;
+    -moz-border-radius: 15px 15px 15px 15px;
+    -webkit-border-radius: 15px 15px 15px 15px;
+}
+
+@mixin avatar-lg-image-radius{
+    border-radius: 100px 100px 100px 100px;
+    -moz-border-radius: 100px 100px 100px 100px;
+    -webkit-border-radius: 100px 100px 100px 100px;
+}
+
+@mixin avatar-md-image-radius{
+    border-radius: 35px 35px 35px 35px;
+    -moz-border-radius: 35px 35px 35px 35px;
+    -webkit-border-radius: 35px 35px 35px 35px;
+}
+
+@mixin default-border{
+    border: 1px solid $inactive-text-color;
+}
+
+@mixin home-navbar-border{
+    border: 2px solid white;
+    @include default-radius;
+}
+
+@mixin home-navbar-invisible-border{
+    border: 2px solid transparent;
+    @include default-radius;
+}
+
+@mixin transition-opacity{
+    opacity: 1;
+    transition: opacity .25s ease-in-out;
+    -moz-transition: opacity .25s ease-in-out;
+    -webkit-transition: opacity .25s ease-in-out;
+}
+
+@mixin transition-scale{
+    -webkit-transform:scale(1.05);
+    -moz-transform:scale(1.05);
+    -ms-transform:scale(1.05);
+    -o-transform:scale(1.05);
+     transform:scale(1.05);
+}
+
+@mixin transition-lg-scale{
+    -webkit-transform:scale(1.5);
+    -moz-transform:scale(1.5);
+    -ms-transform:scale(1.5);
+    -o-transform:scale(1.5);
+     transform:scale(1.5);
+}
+
+@mixin transition-ease{
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+@mixin transition-quick-ease{
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+
+/************************************
+                HTML
+************************************/
+
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    background-image: url('/portfolio/wp-content/themes/MR-Portfolio/images/brickwall_@2X.png');
+    background-repeat: repeat;
+    font-family: $font-content;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 25px;
+}
+
+hr{
+    padding: 0;
+    margin: $sm-margin;
+    border-top: 1px solid $inactive-text-color !important;
+}
+
+
+/************************************
+               CLASSES
+************************************/
+
+
+.wrapper-header{
+    padding-top: 30px;
+    width: 100%;
+}
+
+.header {
+    width: 100%;
+    max-width: $content-width;
+    margin: 0 auto;
+}
+
+.logo{
+    margin: 0 auto;
+    width: 100%;
+    max-width: 200px;
+}
+
+.wrapper-navigation{
+    width: 100%;
+}
+
+.navigation{
+    a, a:hover, a:active{
+        display: block;
+        text-decoration: none;
+    }
+    a{
+        @include transition-quick-ease;
+        color: $inactive-color-dark;
+    }
+    a:hover, a:active{
+        color: $dark-color;
+    }
+    ul{
+        padding: 0;
+        margin: 0;
+    }
+    li{
+        padding: $xs-padding;
+        list-style-type: none;
+        font-weight: bold;
+        font-size: $lg-font-size;
+        @include transition-quick-ease;
+        &:hover{
+            cursor: pointer;
+            background-color: white;
+        }
+    }
+}
+
+.wrapper-content{
+    width: 100%;
+    padding-top: 50px;
+}
+
+.main-content{
+    width: 90%;
+    padding-bottom:100px;
+}
+
+.sidebar {
+    @include transition-quick-ease;
+    min-width: 230px;
+    max-width: 300px;
+    color: $inactive-text-color;
+    .sidebar-content{
+        @include transition-quick-ease;
+        @include box-shadow;
+        padding: $sm-padding;
+        margin: $sm-margin;
+        background-color: $lightdark-bgcolor;
+    }
+    .sidebar-title{
+        font-size: $lg-font-size;
+        background-color: $light-bgcolor;
+        color: $dark-color;
+        padding: $sm-padding;
+    }
+}
+
+.search-form{
+    padding: 0;
+    margin: 0;
+}
+
+.wrapper-footer{
+    background-color: $dark-color;
+    position: absolute;
+    bottom: 0;
+    height: $footer-height;
+    width: 100%;
+}
+
+.footer {
+    width: 80%;
+    max-width: $content-width;
+    margin: 0 auto;
+    color: $md-white-text-color;
+    font-size: $sm-font-size;
+}
+
+.left-page-content, .right-page-content, .container{
+    padding: 0;
+    margin: 0;
+}
+
+.container{
+    width: 100%;
+    margin: 0 auto;
+}
+
+#temp_load{
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+}
+
+#topPage{
+    cursor: pointer;
+    display: none;
+    position: fixed;
+    bottom: 80px;
+    right: 40px;
+}
+
+
+/* Masonry */
+
+#masonry-grid {
+  margin: 0 auto;
+}
+
+.grid-item{
+    @include transition-quick-ease;
+    cursor: pointer;
+    padding: $xs-padding;
+    margin: 0;
+    width: 300px;
+    overflow: hidden;
+    color: $md-white-text-color;
+
+    .blog-page-content{
+        @include transition-quick-ease;
+        @include box-shadow;
+        padding: $md-padding;
+        background-color: $lightdark-bgcolor;
+    }
+
+    img{
+        @include transition-quick-ease;
+        width: 100%;
+        height: 100%;
+    }
+
+    &:hover{
+        color: white;
+        img{
+            opacity: 0.3;
+            @include transition-scale;
+        }
+        .blog-page-content{
+            background-color: $dark-color;
+        }
+    }
+}
+
+.grid-sizer{
+    width: 33%;
+}
+
+
+/************************************
+            MEDIA QUERIES
+************************************/
+
+/*==========  Non-Mobile First Method  ==========*/
+
+
+@media (min-width:1500px){
+    .main-content{
+        width: 80%;
+    }
+    #masonry-grid{
+        .grid-item, .grid-sizer{
+            //width:25%;
+        }
+    }
+}
+
+@media (max-width:992px){
+    .main-content{
+        width: 100%;
+    }
+}
+
+@media (max-width:1200px){
+    .main-content{
+        width: 100%;
+    }
+    #masonry-grid{
+        .grid-item, .grid-sizer{
+            //width:50%;
+        }
+    }
+}
+
+@media (max-width:768px){
+    .main-content{
+        width: 100%;
+    }
+    #masonry-grid{
+        .grid-item, .grid-sizer{
+            //width:100%;
+        }
+    }
+}

@@ -1,0 +1,230 @@
+@import url(http://fonts.googleapis.com/css?family=Questrial);
+/*
+Theme Name: MR Portfolio
+Theme URL: portfolio.matt-ric.com
+Description: custom portfolio theme
+Version: 1.0
+Author: Matthieu Richard
+Author URL: portfolio.matt-ric.com
+Tags: portfolio
+*/
+/************************************
+               IMPORTS
+************************************/
+/************************************
+              VARIABLES
+************************************/
+/************************************
+               MIXINS
+************************************/
+/************************************
+                HTML
+************************************/
+html {
+  position: relative;
+  min-height: 100%; }
+
+body {
+  background-image: url('/portfolio/wp-content/themes/MR-Portfolio/images/brickwall_@2X.png');
+  background-repeat: repeat;
+  font-family: 'Questrial', sans-serif !important;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 25px; }
+
+hr {
+  padding: 0;
+  margin: 10px;
+  border-top: 1px solid #dedede !important; }
+
+/************************************
+               CLASSES
+************************************/
+.wrapper-header {
+  padding-top: 30px;
+  width: 100%; }
+
+.header {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto; }
+
+.logo {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 200px; }
+
+.wrapper-navigation {
+  width: 100%; }
+
+.navigation a, .navigation a:hover, .navigation a:active {
+  display: block;
+  text-decoration: none; }
+.navigation a {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  color: #a8a8a8; }
+.navigation a:hover, .navigation a:active {
+  color: #121212; }
+.navigation ul {
+  padding: 0;
+  margin: 0; }
+.navigation li {
+  padding: 5px;
+  list-style-type: none;
+  font-weight: bold;
+  font-size: 18px;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  transition: all 0.5s ease; }
+  .navigation li:hover {
+    cursor: pointer;
+    background-color: white; }
+
+.wrapper-content {
+  width: 100%;
+  padding-top: 50px; }
+
+.main-content {
+  width: 90%;
+  padding-bottom: 100px; }
+
+.sidebar {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  min-width: 230px;
+  max-width: 300px;
+  color: #dedede; }
+  .sidebar .sidebar-content {
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+    padding: 10px;
+    margin: 10px;
+    background-color: #222222; }
+  .sidebar .sidebar-title {
+    font-size: 18px;
+    background-color: #cccccc;
+    color: #121212;
+    padding: 10px; }
+
+.search-form {
+  padding: 0;
+  margin: 0; }
+
+.wrapper-footer {
+  background-color: #121212;
+  position: absolute;
+  bottom: 0;
+  height: 25px;
+  width: 100%; }
+
+.footer {
+  width: 80%;
+  max-width: 1000px;
+  margin: 0 auto;
+  color: #bbbbbb;
+  font-size: 12px; }
+
+.left-page-content, .right-page-content, .container {
+  padding: 0;
+  margin: 0; }
+
+.container {
+  width: 100%;
+  margin: 0 auto; }
+
+#temp_load {
+  position: fixed;
+  bottom: 40px;
+  right: 40px; }
+
+#topPage {
+  cursor: pointer;
+  display: none;
+  position: fixed;
+  bottom: 80px;
+  right: 40px; }
+
+/* Masonry */
+#masonry-grid {
+  margin: 0 auto; }
+
+.grid-item {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  cursor: pointer;
+  padding: 5px;
+  margin: 0;
+  width: 300px;
+  overflow: hidden;
+  color: #bbbbbb; }
+  .grid-item .blog-page-content {
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+    padding: 20px;
+    background-color: #222222; }
+  .grid-item img {
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    width: 100%;
+    height: 100%; }
+  .grid-item:hover {
+    color: white; }
+    .grid-item:hover img {
+      opacity: 0.3;
+      -webkit-transform: scale(1.05);
+      -moz-transform: scale(1.05);
+      -ms-transform: scale(1.05);
+      -o-transform: scale(1.05);
+      transform: scale(1.05); }
+    .grid-item:hover .blog-page-content {
+      background-color: #121212; }
+
+.grid-sizer {
+  width: 33%; }
+
+/************************************
+            MEDIA QUERIES
+************************************/
+/*==========  Non-Mobile First Method  ==========*/
+@media (min-width: 1500px) {
+  .main-content {
+    width: 80%; } }
+
+@media (max-width: 992px) {
+  .main-content {
+    width: 100%; } }
+
+@media (max-width: 1200px) {
+  .main-content {
+    width: 100%; } }
+
+@media (max-width: 768px) {
+  .main-content {
+    width: 100%; } }
