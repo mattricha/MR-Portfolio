@@ -11,14 +11,6 @@
                     </div>
                 </div>
 
-                <div class="clearfix"></div>
-
-                <div class="article-nav clearfix">
-                    <p class="article-nav-next pull-right"><?php previous_posts_link(__('Newer Posts »')); ?></p>
-                    <p class="article-nav-prev pull-left"><?php next_posts_link(__('« Older Posts')); ?></p>
-                </div>
-
-                <div class="clearfix"></div>
             </div>
 
             <div class="clearfix"></div>

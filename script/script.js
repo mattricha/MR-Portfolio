@@ -21,7 +21,7 @@ jQuery(document).ready(function ($) {
     var load_posts = function(){
         $.ajax({
             type       : "GET",
-            data       : {numPosts : 3, pageNumber: page, catPosts : cat},
+            data       : {numPosts : 6, pageNumber: page, catPosts : cat},
             dataType   : "html",
             url        : "/wp-content/themes/MR-Portfolio/loopHandler.php",
             beforeSend : function(){
@@ -55,7 +55,7 @@ jQuery(document).ready(function ($) {
     if (window.location.href == homepage){
         $window.scroll(function() {
             var content_offset = $container.offset();
-            console.log(content_offset.top);
+            //console.log(content_offset.top);
             if(!loading && ($window.scrollTop() +
                 $window.height()) > ($container.scrollTop() +
                 $container.height() + content_offset.top)) {
@@ -77,7 +77,7 @@ jQuery(document).ready(function ($) {
     });
 
     $("#topPage").click( function() {
-        $("html, body").animate({ scrollTop: 0 }, "slow");
+        goToTop();
     });
 
     $(".grid-filter").click( function() {
@@ -89,9 +89,8 @@ jQuery(document).ready(function ($) {
             page = 1;
             $container.html('');
             load_posts();
-            //urlArg = "/?c=" + cat;
-            //window.history.pushState("object or string", "Title", urlArg);
         }
+        goToTop();
     });
 
     $(".grid-filter-all").click( function() {
@@ -104,7 +103,12 @@ jQuery(document).ready(function ($) {
             $container.html('');
             load_posts();
         }
+        goToTop();
     });
+
+    function goToTop(){
+        $("html, body").animate({ scrollTop: 0 }, "slow");
+    }
 
     function showSection(sectionID){
         cat = sectionID;
@@ -123,4 +127,22 @@ jQuery(document).ready(function ($) {
     else{
         load_posts();
     }
+
+    // skrollr (parallax scrolling)
+    var s = skrollr.init();
+    s.refresh($('.homeSlide'));
+
+    //search page
+
+    var $containerSearch = $('#masonry-search-grid');
+
+    $containerSearch.imagesLoaded( function() {
+        $containerSearch.masonry({
+            itemSelector: '.grid-item',
+            columnWidth: 300,
+            isAnimated: true,
+            isFitWidth: true
+        });
+    });
+
 });

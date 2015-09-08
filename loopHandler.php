@@ -35,17 +35,19 @@ if (have_posts()) : while (have_posts()) : the_post(); ?>
                 <div class="category-post">
                     <h6 class="article-meta-extra">
                             <?php if (has_category() && !has_category('Uncategorized')) : ?>
-                                <?php the_category('  |  '); ?> |
+                                <?php
+                                $categories = get_the_category();
+                                if ( ! empty( $categories ) ) {
+                                    echo '<a href="/?c=' . $categories[0]->term_id . '">' . $categories[0]->name . '</a>';
+                                }
+                                ?> |
                             <?php else : ?>
                             <?php endif; ?>
-                        Posted on <?php the_date(get_option('date_format')); ?> at <?php the_time(get_option('time_format')); ?> by <?php the_author_posts_link(); ?>
+                        Posted on <?php the_date(get_option('date_format')); ?> at <?php the_time(get_option('time_format')); ?>
                     </h6>
                    <?php the_excerpt(); ?>
                 </div>
-                <?php if (has_tag()) : ?>
-                    <p class="tags"><?php the_tags('', ' '); ?></p>
-                <?php else : ?>
-                <?php endif; ?>
+
                 <a href="<?php the_permalink(); ?>" class="btn btn-blue btn-block">Read More</a>
         </div>
     </div>

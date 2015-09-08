@@ -1,4 +1,4 @@
-<div class="left-page-content col-lg-3 col-md-3 hidden-sm hidden-xs">
+<div class="left-page-content col-lg-3 col-md-3">
     <div class="sidebar">
         <div class="logo">
             <a href='/' title="MR Portfolio"><img src="<?php echo get_template_directory_uri(); ?>/images/logo_header.png" alt="logo" /></a>
@@ -25,8 +25,7 @@
                     ?>
                     <li><a class="grid-filter-all">see all posts</a></li>
                     <hr>
-                    <li><a href="">About me</a></li>
-                    <li><a href="">Contact</a></li>
+                    <li><a href="/about/">About me</a></li>
                     </ul>
                 </div>
             </div>

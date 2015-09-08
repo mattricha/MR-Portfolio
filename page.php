@@ -9,7 +9,7 @@
 
 <div class="wrapper-content">
     <div class="main-content">
-        <?php get_sidebar('page'); ?>
+        <?php get_sidebar(); ?>
         <div class="right-page-content col-lg-9 col-md-9 col-sm-12 col-xs-12">
             <div class="page-content">
                 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>

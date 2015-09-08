@@ -105,6 +105,7 @@ function webtegrity_scripts() {
     wp_enqueue_script( 'jquery_1_11_3', get_template_directory_uri() . '/jquery-1.11.3.min.js');
     wp_enqueue_script( 'imagesloaded', get_template_directory_uri() . '/imagesloaded.pkgd.min.js');
     wp_enqueue_script( 'masonry_package', get_template_directory_uri() . '/masonry.pkgd.min.js');
+    wp_enqueue_script( 'skrollr', get_template_directory_uri() . '/skrollr.min.js');
     wp_enqueue_script( 'custom_script', get_template_directory_uri() . '/script.min.js');
 
 }

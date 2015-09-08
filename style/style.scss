@@ -50,6 +50,7 @@ $sm-padding: 10px;
 $xs-padding: 5px;
 $xxs-padding: 2px;
 $default-margin: 40px;
+$lg-margin: 30px;
 $md-margin: 20px;
 $sm-margin: 10px;
 $xs-margin: 5px;
@@ -120,6 +121,10 @@ $zindex-overlay: 11000;
     -webkit-box-shadow: 0px 0px 0px 0px rgba(255,255,255,0);
     -moz-box-shadow: 0px 0px 0px 0px rgba(255,255,255,0);
     box-shadow: 0px 0px 0px 0px rgba(255,255,255,0);
+}
+
+@mixin text-shadow{
+    text-shadow: 2px 2px 3px rgba(43, 43, 43, 1);
 }
 
 @mixin default-radius{
@@ -219,8 +224,7 @@ $zindex-overlay: 11000;
 
 
 html {
-  position: relative;
-  min-height: 100%;
+  height: 100%;
 }
 
 body {
@@ -245,14 +249,74 @@ hr{
 
 
 .wrapper-header{
-    padding-top: 30px;
+    position: fixed;
+    top: 0;
+    z-index: 10000;
     width: 100%;
+    margin: 0;
 }
 
 .header {
-    width: 100%;
+    width: 90%;
     max-width: $content-width;
     margin: 0 auto;
+    .header-left{
+        float: left;
+        padding: $sm-padding;
+    }
+    .header-right{
+        float: right;
+        width: 80px !important;
+        margin-top: $lg-margin;
+    }
+    .dropdown-toggle{
+        @include box-shadow;
+        background-color: $lightdark-bgcolor;
+        color: $inactive-text-color !important;
+        @include no-radius;
+    }
+    a, a:hover, a:active{
+        display: block;
+        text-decoration: none;
+    }
+    .caret{
+        border-top:4px solid $inactive-text-color;
+    }
+    ul{
+        float: right;
+        padding: 0;
+        margin: 0;
+    }
+    li{
+        display: inline-block;
+        list-style-type: none;
+        font-size: $sm-font-size;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+    .dropdown-menu{
+        margin: 0;
+        padding: 0;
+        @include no-radius;
+        a, a:hover, a:active, a:visited{
+            padding: $sm-padding;
+            background: none !important;
+            @include transition-quick-ease;
+        }
+        li{
+            width: 100%;
+            @include transition-quick-ease;
+            &:hover{
+                background-color: $light-bgcolor !important;
+            }
+        }
+    }
+    .dropdown:hover{
+        .dropdown-menu {
+            display: block;
+        }
+    }
 }
 
 .logo{
@@ -295,6 +359,9 @@ hr{
 }
 
 .wrapper-content{
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
     width: 100%;
     padding-top: 50px;
 }
@@ -331,8 +398,6 @@ hr{
 
 .wrapper-footer{
     background-color: $dark-color;
-    position: absolute;
-    bottom: 0;
     height: $footer-height;
     width: 100%;
 }
@@ -358,7 +423,7 @@ hr{
 #temp_load{
     position: fixed;
     bottom: 40px;
-    right: 40px;
+    right: 20px;
 }
 
 #topPage{
@@ -366,9 +431,50 @@ hr{
     display: none;
     position: fixed;
     bottom: 80px;
-    right: 40px;
+    right: 20px;
 }
 
+
+/* article page */
+
+.blog-page-container{
+    @include transition-quick-ease;
+    margin: 0;
+    overflow: hidden;
+    //color: $md-white-text-color;
+    .blog-page-content{
+        padding: $md-padding;
+        padding-top: 5px !important;
+    }
+    .blog-page-content-txt{
+        @include transition-quick-ease;
+        @include box-shadow;
+        padding: $md-padding;
+        background-color: $lightdark-bgcolor;
+        color: $light-color;
+    }
+}
+
+/* parallax scrollin */
+
+.bcg {
+    height: 300px;
+    @include box-shadow;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.hsContent {
+    color: $light-color;
+    @include text-shadow;
+    position: absolute;
+    left: 40px;
+    top: 253px;
+}
+
+.hsContainer{
+    background-color: $dark-color;
+}
 
 /* Masonry */
 
@@ -376,13 +482,16 @@ hr{
   margin: 0 auto;
 }
 
+#masonry-search-grid {
+  margin: 0 auto;
+}
+
 .grid-item{
-    @include transition-quick-ease;
     cursor: pointer;
     padding: $xs-padding;
     margin: 0;
     width: 300px;
-    overflow: hidden;
+    //overflow: hidden;
     color: $md-white-text-color;
 
     .blog-page-content{
@@ -398,6 +507,11 @@ hr{
         height: 100%;
     }
 
+    .category-title-link, .category-title-link:hover, .category-title-link:active{
+        text-decoration: none;
+        color: $inactive-color-dark;
+    }
+
     &:hover{
         color: white;
         img{
@@ -410,10 +524,6 @@ hr{
     }
 }
 
-.grid-sizer{
-    width: 33%;
-}
-
 
 /************************************
             MEDIA QUERIES
@@ -423,7 +533,7 @@ hr{
 
 
 @media (min-width:1500px){
-    .main-content{
+    .main-content, .header{
         width: 80%;
     }
     #masonry-grid{
@@ -433,14 +543,8 @@ hr{
     }
 }
 
-@media (max-width:992px){
-    .main-content{
-        width: 100%;
-    }
-}
-
 @media (max-width:1200px){
-    .main-content{
+    .main-content, .header{
         width: 100%;
     }
     #masonry-grid{
@@ -450,13 +554,47 @@ hr{
     }
 }
 
+@media (min-width:992px){
+    .sidebar{
+        display : block;
+    }
+    .wrapper-header{
+        display: none;
+    }
+}
+
+@media (max-width:992px){
+    .main-content, .header{
+        width: 100%;
+    }
+    .sidebar{
+        display : none;
+    }
+    .wrapper-header{
+        display: block;
+    }
+}
+
 @media (max-width:768px){
-    .main-content{
+    h1{
+        font-size: 24px;
+    }
+    h2{
+        font-size: 20px;
+    }
+    .main-content, .header{
         width: 100%;
     }
     #masonry-grid{
         .grid-item, .grid-sizer{
             //width:100%;
         }
+    }
+    .bcg {
+        height: 150px;
+    }
+    .hsContent {
+        left: 40px;
+        top: 114px;
     }
 }
