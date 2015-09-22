@@ -1,3 +1,6 @@
+</div>
+
+<div id="temp_load" style="text-align:center"><img src="/wp-content/themes/MR-Portfolio/images/ajax-loader.gif" /></div>
 <div id="topPage" style="text-align:center"><img src="/wp-content/themes/MR-Portfolio/images/topPage.png" /></div>
 <div class="wrapper-footer">
     <div class="footer" align="center">

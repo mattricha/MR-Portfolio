@@ -16,7 +16,7 @@ Tags: portfolio
 
 
 @import url(http://fonts.googleapis.com/css?family=Questrial);
-
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans:300);
 
 /************************************
               VARIABLES
@@ -24,17 +24,24 @@ Tags: portfolio
 
 
 $font-content: 'Questrial', sans-serif !important;
+$font-header-title: 'Josefin Sans', sans-serif !important;
 $font-size: 14px;
 $xs-font-size: 10px;
 $sm-font-size: 12px;
 $md-font-size: 14px;
+$xmd-font-size: 16px;
 $lg-font-size: 18px;
 $xl-font-size: 24px;
 $xxl-font-size: 30px;
+$xxxl-font-size: 60px;
+$xxxxl-font-size: 120px;
 
 $dark-color: #121212;
+$darker-color: #111111;
 $light-color: #ffffff;
+$lighter-bgcolor: #eeeeee;
 $light-bgcolor: #cccccc;
+$dark-bgcolor: #121212;
 $lightdark-bgcolor: #222222;
 
 $primary-text-color: #121212;
@@ -109,6 +116,12 @@ $zindex-overlay: 11000;
     -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+
+@mixin light-box-shadow{
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
 }
 
 @mixin right-side-shadow{
@@ -228,7 +241,8 @@ html {
 }
 
 body {
-    background-image: url('/portfolio/wp-content/themes/MR-Portfolio/images/brickwall_@2X.png');
+    background-image: url('/wp-content/themes/MR-Portfolio/images/brickwall_@2X.png');
+    background-color: #F9F9F9;
     background-repeat: repeat;
     font-family: $font-content;
     width: 100%;
@@ -238,7 +252,7 @@ body {
 
 hr{
     padding: 0;
-    margin: $sm-margin;
+    margin: $xs-margin;
     border-top: 1px solid $inactive-text-color !important;
 }
 
@@ -257,23 +271,74 @@ hr{
 }
 
 .header {
-    width: 90%;
-    max-width: $content-width;
-    margin: 0 auto;
+    width: 100%;
     .header-left{
         float: left;
         padding: $sm-padding;
     }
     .header-right{
-        float: right;
-        width: 80px !important;
-        margin-top: $lg-margin;
+        position: fixed;
+        z-index: $zindex-top;
+        top: 0;
+        right: -160px;
+        width: 200px;
+        ul{
+            float: right;
+            padding: 0;
+            margin: 0;
+        }
+        li{
+            display: inline;
+        }
     }
-    .dropdown-toggle{
+    .right-menu-toggle{
         @include box-shadow;
-        background-color: $lightdark-bgcolor;
-        color: $inactive-text-color !important;
         @include no-radius;
+        width: 40px;
+        background-color: $darker-color;
+        color: $inactive-text-color !important;
+        margin-top: 28px;
+    }
+    .right-menu{
+        height: 100vh;
+        width: 160px;
+        padding:0;
+        margin:0;
+        @include box-shadow;
+        @include no-radius;
+        background-color: $darker-color;
+        color: $inactive-text-color !important;
+        a, a:hover, a:active, a:visited{
+            color: $inactive-text-color !important;
+            background: none !important;
+            @include transition-quick-ease;
+        }
+        li{
+            width: 100%;
+            display: inline-block;
+            list-style-type: none;
+            font-size: $md-font-size;
+            padding:$sm-padding;
+            @include transition-quick-ease;
+            color: $inactive-text-color !important;
+            &:hover{
+                cursor: pointer;
+                background-color: $light-bgcolor !important;
+            }
+        }
+        .sidebar-search-sm-form{
+            form{
+                padding: 0;
+                margin: 0;
+            }
+            input{
+                width: 75%;
+            }
+            button{
+                float: right;
+                width: 25%;
+            }
+        }
     }
     a, a:hover, a:active{
         display: block;
@@ -282,47 +347,36 @@ hr{
     .caret{
         border-top:4px solid $inactive-text-color;
     }
-    ul{
-        float: right;
-        padding: 0;
-        margin: 0;
-    }
-    li{
-        display: inline-block;
-        list-style-type: none;
-        font-size: $sm-font-size;
-        &:hover{
-            cursor: pointer;
-        }
-    }
-    .dropdown-menu{
-        margin: 0;
-        padding: 0;
-        @include no-radius;
-        a, a:hover, a:active, a:visited{
-            padding: $sm-padding;
-            background: none !important;
-            @include transition-quick-ease;
-        }
-        li{
-            width: 100%;
-            @include transition-quick-ease;
-            &:hover{
-                background-color: $light-bgcolor !important;
-            }
-        }
-    }
-    .dropdown:hover{
-        .dropdown-menu {
-            display: block;
-        }
-    }
+
+
 }
 
 .logo{
     margin: 0 auto;
+    margin-bottom: $lg-margin;
     width: 100%;
     max-width: 200px;
+}
+
+.header-title, .header-title-2{
+    height: 200px;
+    line-height: 200px;
+    font-family: $font-header-title;
+    font-size: $xxxxl-font-size;
+    opacity: 0.2;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.header-title-3{
+    height: 200px;
+    line-height: 200px;
+    font-family: $font-header-title;
+    font-size: $xxxl-font-size;
+    padding-bottom: 0;
+    opacity: 0.5;
+    margin-bottom: 25px;
+    text-align: center;
 }
 
 .wrapper-navigation{
@@ -383,18 +437,37 @@ hr{
         margin: $sm-margin;
         background-color: $lightdark-bgcolor;
     }
+    .sidebar-search{
+        @include light-box-shadow;
+        margin: $sm-margin;
+    }
+    .sidebar-search-form{
+        form{
+            padding: 0;
+            margin: 0;
+        }
+        input{
+            width: 88%;
+        }
+        button{
+            float: right;
+            width: 12%;
+        }
+    }
     .sidebar-title{
-        font-size: $lg-font-size;
+        font-family: $font-header-title;
+        font-size: $xl-font-size;
         background-color: $light-bgcolor;
         color: $dark-color;
-        padding: $sm-padding;
+        padding-left: $xs-padding;
     }
+    .category-count{
+        font-size: $sm-font-size;
+        padding-left: $sm-padding;
+    }
+
 }
 
-.search-form{
-    padding: 0;
-    margin: 0;
-}
 
 .wrapper-footer{
     background-color: $dark-color;
@@ -421,18 +494,43 @@ hr{
 }
 
 #temp_load{
+    z-index: $zindex-top;
     position: fixed;
     bottom: 40px;
     right: 20px;
 }
 
 #topPage{
+    z-index: $zindex-top;
     cursor: pointer;
     display: none;
     position: fixed;
     bottom: 80px;
     right: 20px;
 }
+
+
+/* about page */
+
+
+.about-item{
+    padding: $md-padding;
+    margin: $sm-margin;
+    color: $md-white-text-color;
+    background-color: $lightdark-bgcolor;
+    @include transition-quick-ease;
+    @include box-shadow;
+    .about-item-title{
+        text-decoration: none;
+        color: $inactive-color-dark;
+    }
+    &:hover{
+        color: white;
+        background-color: $dark-color;
+    }
+}
+
+
 
 
 /* article page */
@@ -452,6 +550,12 @@ hr{
         padding: $md-padding;
         background-color: $lightdark-bgcolor;
         color: $light-color;
+    }
+    .article-description{
+        background-color: $lighter-bgcolor;
+        color: $dark-color;
+        font-size: $xmd-font-size;
+        padding: $lg-padding;
     }
 }
 
@@ -476,6 +580,7 @@ hr{
     background-color: $dark-color;
 }
 
+
 /* Masonry */
 
 #masonry-grid {
@@ -494,7 +599,7 @@ hr{
     //overflow: hidden;
     color: $md-white-text-color;
 
-    .blog-page-content{
+    .article-preview{
         @include transition-quick-ease;
         @include box-shadow;
         padding: $md-padding;
@@ -518,7 +623,7 @@ hr{
             opacity: 0.3;
             @include transition-scale;
         }
-        .blog-page-content{
+        .article-preview{
             background-color: $dark-color;
         }
     }
@@ -573,6 +678,9 @@ hr{
     .wrapper-header{
         display: block;
     }
+    .blog-page-content{
+        padding: 0 !important;
+    }
 }
 
 @media (max-width:768px){
@@ -581,6 +689,20 @@ hr{
     }
     h2{
         font-size: 20px;
+    }
+    .header-title, .header-title-2{
+        height: 50px;
+        line-height: 50px;
+        font-size: $xxxl-font-size;
+        margin-top: $md-margin;
+        margin-bottom: $lg-margin;
+    }
+    .header-title-3{
+        height: 30px;
+        line-height: 30px;
+        font-size: $xxl-font-size;
+        margin-top: $md-margin;
+        margin-bottom: $lg-margin;
     }
     .main-content, .header{
         width: 100%;
@@ -596,5 +718,14 @@ hr{
     .hsContent {
         left: 40px;
         top: 114px;
+    }
+    .article-description{
+        font-size: $md-font-size !important;
+    }
+    #temp_load{
+        right: 2px;
+    }
+    #topPage{
+        right: 2px;
     }
 }

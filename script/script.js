@@ -8,6 +8,9 @@ jQuery(document).ready(function ($) {
     var loading = true;
     var $window = $(window);
     var cat = null;
+    var titleHeader = '/ portfolio';
+    var gridFilterID = '';
+    var rightMenuOpen = false;
 
     $container.imagesLoaded( function() {
         $container.masonry({
@@ -26,23 +29,25 @@ jQuery(document).ready(function ($) {
             url        : "/wp-content/themes/MR-Portfolio/loopHandler.php",
             beforeSend : function(){
                 if(page != 1){
-                    $container.append('<div id="temp_load" style="text-align:center"><img src="/wp-content/themes/MR-Portfolio/images/ajax-loader.gif" /></div>');
+                    $("#temp_load").fadeIn();
                 }
             },
             success    : function(data){
                 $data = $(data);
                 if($data.length){
                     $data.hide();
-                    $container.append($data);
+                    $data.imagesLoaded( function() {
+                        $container.append($data);
+                        $container.masonry('reloadItems');
+                        $container.masonry('layout');
+                    });
                     $data.fadeIn(500, function(){
-                        $("#temp_load").remove();
+                        $("#temp_load").fadeOut();
                         loading = false;
                     });
                 } else {
                     $("#temp_load").remove();
                 }
-                $container.masonry('reloadItems');
-                $container.masonry('layout');
             },
             error     : function(jqXHR, textStatus, errorThrown) {
                 $("#temp_load").remove();
@@ -76,6 +81,9 @@ jQuery(document).ready(function ($) {
         }
     });
 
+
+    // events
+
     $("#topPage").click( function() {
         goToTop();
     });
@@ -89,6 +97,7 @@ jQuery(document).ready(function ($) {
             page = 1;
             $container.html('');
             load_posts();
+            change_title($(this).attr('title'));
         }
         goToTop();
     });
@@ -102,9 +111,61 @@ jQuery(document).ready(function ($) {
             page = 1;
             $container.html('');
             load_posts();
+            titleHeader = '/ portfolio';
+            change_title(titleHeader);
         }
         goToTop();
     });
+
+    $(".right-menu-toggle").click( function(){
+        if(rightMenuOpen){
+            close_right_menu();
+        }
+        else{
+            open_right_menu();
+        }
+    });
+
+    $("body").click( function(){
+        if(rightMenuOpen){
+            close_right_menu();
+        }
+    });
+
+    $(".right-menu-link").click( function(){
+        if(rightMenuOpen){
+            close_right_menu();
+        }
+    });
+
+    $(".right-menu").click( function(event){
+        event.stopPropagation();
+    });
+
+
+    // functions
+
+    function close_right_menu(){
+        $(".header-right").animate({
+                right: "-160px"
+              }, 200, function() {
+                rightMenuOpen = false;
+            });
+    }
+
+    function open_right_menu(){
+        $(".header-right").animate({
+                right: "0px"
+              }, 200, function() {
+                rightMenuOpen = true;
+            });
+    }
+
+    function change_title(title){
+        $('.header-title').fadeOut('fast', function(){$('.header-title').html(title);});
+        $('.header-title').fadeIn('fast');
+        window.history.pushState("object or string", "Title", "/");
+    }
 
     function goToTop(){
         $("html, body").animate({ scrollTop: 0 }, "slow");
@@ -113,9 +174,11 @@ jQuery(document).ready(function ($) {
     function showSection(sectionID){
         cat = sectionID;
         page = 1;
+        gridFilterID = '#grid-filter-' + cat;
         $container.html('');
         load_posts();
-        window.history.pushState("object or string", "Title", "/");
+        titleHeader = $(gridFilterID).attr('title');
+        change_title(titleHeader);
     }
 
     // check URL arguments
@@ -125,12 +188,9 @@ jQuery(document).ready(function ($) {
         showSection(section);
     }
     else{
+        $('.header-title').html(titleHeader);
         load_posts();
     }
-
-    // skrollr (parallax scrolling)
-    var s = skrollr.init();
-    s.refresh($('.homeSlide'));
 
     //search page
 
@@ -144,5 +204,13 @@ jQuery(document).ready(function ($) {
             isFitWidth: true
         });
     });
+
+    // skrollr (parallax scrolling)
+
+    if(!(/Android|iPhone|iPad|iPod|BlackBerry|Windows Phone/i).test(navigator.userAgent || navigator.vendor || window.opera)){
+        skrollr.init({
+            forceHeight: false
+        });
+    }
 
 });

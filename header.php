@@ -12,6 +12,7 @@
 </head>
 
 <body>
+
     <div class="wrapper-header">
         <div class="header">
             <div class="header-left">
@@ -21,15 +22,53 @@
             </div>
             <div class="header-right">
                 <ul>
+                    <li>
+                        <button type="button" class="btn right-menu-toggle"><i class="glyphicon glyphicon-list"></i></button>
+                    </li>
+                    <li>
+                        <ul class="right-menu">
+                            <li>
+                                <div class="sidebar-search-sm">
+                                    <div class="sidebar-search-sm-form"> <?php include(TEMPLATEPATH . "/searchform.php"); ?></div>
+                                </div>
+                            </li>
+                            <hr>
+                            <?php
+                                $output = '';
+                                $args = array(
+                                    'order'                    => 'DESC',
+                                    'orderby'                  => 'count'
+                                );
+                                $categories = get_categories($args);
+                                if($categories){
+                                    foreach( $categories as $category ) {
+                                        $output .= '<li class="right-menu-link"><a alt="' . esc_attr( sprintf( __( 'View all posts in %s', 'textdomain' ), $category->name ) ) . '" class="grid-filter" title="/ ' . strtolower( $category->name ) . '" id="grid-filter-' . $category->term_id . '" value="' . $category->term_id . '">' . esc_html( $category->name ) . '</a></li>';
+                                    }
+                                    echo $output;
+                                }
+                            ?>
+                            <li class="right-menu-link"><a class="grid-filter-all right-menu-link">all</a></li>
+                            <hr>
+                            <li class="right-menu-link"><a href="/about/">About me</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+
+                <!--ul>
                     <li class="dropdown">
-                        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-list"></i>&nbsp;Menu <span class="caret"></span></button>
+                        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-list"></i></button>
                         <ul class="dropdown-menu" role="menu">
                             <?php
                                 $output = '';
-                                $categories = get_categories();
+                                $args = array(
+                                    'order'                    => 'DESC',
+                                    'orderby'                  => 'count'
+                                );
+                                $categories = get_categories($args);
                                 if($categories){
                                     foreach( $categories as $category ) {
-                                        $output .= '<li><a alt="' . esc_attr( sprintf( __( 'View all posts in %s', 'textdomain' ), $category->name ) ) . '" class="grid-filter" value="' . $category->term_id . '">' . esc_html( $category->name ) . '</a></li>';
+                                        $output .= '<li><a alt="' . esc_attr( sprintf( __( 'View all posts in %s', 'textdomain' ), $category->name ) ) . '" class="grid-filter" title="/ ' . strtolower( $category->name ) . '" id="grid-filter-' . $category->term_id . '" value="' . $category->term_id . '">' . esc_html( $category->name ) . '</a></li>';
                                     }
                                     echo $output;
                                 }
@@ -39,7 +78,9 @@
                             <li><a href="/about/">About me</a></li>
                         </ul>
                     </li>
-                </ul>
+                </ul-->
             </div>
         </div>
     </div>
+
+    <div id="skrollr-body">

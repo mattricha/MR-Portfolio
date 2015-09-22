@@ -24,7 +24,7 @@ if (have_posts()) : while (have_posts()) : the_post(); ?>
     <div class="grid-item _<?php
     $category = get_the_category( $post );
     echo $category[0]->cat_name; ?>" onclick="window.location.href = '<?php the_permalink(); ?>';">
-        <div class="blog-page-content">
+        <div class="article-preview">
             <?php if (has_post_thumbnail()) : ?>
                 <figure class="article-preview-image">
                     <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('custom-blog-thumb'); ?></a>
@@ -32,7 +32,7 @@ if (have_posts()) : while (have_posts()) : the_post(); ?>
             <?php else : ?>
             <?php endif; ?>
                 <h2><a href="<?php the_permalink(); ?>" class="category-title-link"><?php the_title(); ?></a></h2>
-                <div class="category-post">
+                <div class="category-post article-preview-txt">
                     <h6 class="article-meta-extra">
                             <?php if (has_category() && !has_category('Uncategorized')) : ?>
                                 <?php

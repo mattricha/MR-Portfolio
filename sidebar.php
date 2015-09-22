@@ -3,9 +3,8 @@
         <div class="logo">
             <a href='/' title="MR Portfolio"><img src="<?php echo get_template_directory_uri(); ?>/images/logo_header.png" alt="logo" /></a>
         </div>
-        <br>
-        <div class="sidebar-content">
-            <div class="search-form-sidebar"> <?php include(TEMPLATEPATH . "/searchform.php"); ?></div>
+        <div class="sidebar-search">
+            <div class="sidebar-search-form"> <?php include(TEMPLATEPATH . "/searchform.php"); ?></div>
         </div>
         <div class="sidebar-content">
             <div class="wrapper-navigation">
@@ -15,10 +14,14 @@
                     <ul>
                     <?php
                         $output = '';
-                        $categories = get_categories();
+                        $args = array(
+                            'order'                    => 'DESC',
+                            'orderby'                  => 'count'
+                        );
+                        $categories = get_categories($args);
                         if($categories){
                             foreach( $categories as $category ) {
-                                $output .= '<li><a alt="' . esc_attr( sprintf( __( 'View all posts in %s', 'textdomain' ), $category->name ) ) . '" class="grid-filter" value="' . $category->term_id . '">' . esc_html( $category->name ) . '</a></li>';
+                                $output .= '<li><a alt="' . esc_attr( sprintf( __( 'View all posts in %s', 'textdomain' ), $category->name ) ) . '" class="grid-filter" id="grid-filter-' . $category->term_id . '" title="/ ' . strtolower( $category->name ) . '" value="' . $category->term_id . '">' . esc_html( $category->name ) . '<span class="category-count">(' . $category->count . ')</span></a></li>';
                             }
                             echo $output;
                         }

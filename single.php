@@ -4,6 +4,9 @@
     <div class="main-content">
         <?php get_sidebar(); ?>
         <div class="right-page-content col-lg-9 col-md-9 col-sm-12 col-xs-12">
+            <div class="container">
+                <div class="header-title-3">/ <?php the_title(); ?></div>
+            </div>
             <div class="blog-page-container">
                 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
                     <div class="blog-page-content">
@@ -12,7 +15,7 @@
                                 <div class="bcg" data-center="background-position: 50% 0px;" data-top-bottom="background-position: 50% -200px;" data-anchor-target="#slide" style="background-image: url('<?php echo wp_get_attachment_url( get_post_thumbnail_id( $post->ID )); ?>')">
                                     <div class="hsContainer">
                                         <div class="hsContent" data-center="bottom: 200px" data-top="bottom: 1200px; opacity: 0.5" data-bottom="opacity: 1" data-anchor-target="#slide h1">
-                                            <h1> <?php the_title(); ?></h1>
+                                            <h1></h1>
                                         </div>
                                     </div>
                                 </div>
@@ -34,7 +37,9 @@
                                     </h6>
                                 </div>
                                 <br>
-                                <?php the_content(); ?>
+                                <div class="article-description">
+                                    <?php the_content(); ?>
+                                </div>
                             </div>
                 <?php endwhile; ?>
                 <?php else : ?>

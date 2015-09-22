@@ -2,7 +2,7 @@
 
 <div class="wrapper-page-title">
     <div class="page-title">
-        <?php if (have_posts()) : ?>
+
         <div class="clearfix"></div>
     </div>
 </div>
@@ -11,12 +11,14 @@
             <?php get_sidebar(); ?>
             <div class="right-page-content col-lg-9 col-md-9 col-sm-12 col-xs-12">
                 <div class="container">
+                    <div class="header-title-2">/ search</div>
+                <?php if (have_posts()) : ?>
                     <div id="masonry-search-grid">
                         <?php while (have_posts()) : the_post(); ?>
                             <div class="grid-item _<?php
                             $category = get_the_category( $post );
                             echo $category[0]->cat_name; ?>" onclick="window.location.href = '<?php the_permalink(); ?>';">
-                                <div class="blog-page-content">
+                                <div class="article-preview">
                                     <?php if (has_post_thumbnail()) : ?>
                                         <figure class="article-preview-image">
                                             <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('custom-blog-thumb'); ?></a>
@@ -42,12 +44,10 @@
                                 </div>
                             </div>
                         <?php endwhile; ?>
-                        <?php else : ?>
-                        <article class="no-posts">
-                            <h1>No posts were found.</h1>
-                        </article>
-                        <?php endif; ?>
                     </div>
+                <?php else : ?>
+                        <div align="center"><h4>No posts were found.</h4></div>
+                <?php endif; ?>
                 </div>
 
                 <div class="clearfix"></div>
