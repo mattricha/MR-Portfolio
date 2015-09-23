@@ -69,7 +69,7 @@ $md-media-width: 900px;
 $sm-media-width: 768px;
 $xs-media-width: 500px;
 
-$footer-height: 25px;
+$footer-height: 30px;
 
 $zindex-top: 10000;
 $zindex-overlay: 11000;
@@ -473,6 +473,7 @@ hr{
     background-color: $dark-color;
     height: $footer-height;
     width: 100%;
+    margin-bottom: -5px;
 }
 
 .footer {
@@ -481,6 +482,7 @@ hr{
     margin: 0 auto;
     color: $md-white-text-color;
     font-size: $sm-font-size;
+    padding-top: 7px;
 }
 
 .left-page-content, .right-page-content, .container{
@@ -629,6 +631,11 @@ hr{
     }
 }
 
+/* gallery */
+
+.envirabox-title, .envirabox-title-float-wrap{
+    display: none !important;
+}
 
 /************************************
             MEDIA QUERIES

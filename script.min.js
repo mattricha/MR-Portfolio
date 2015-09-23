@@ -211,6 +211,8 @@ jQuery(document).ready(function ($) {
         skrollr.init({
             forceHeight: false
         });
+    }else{
+        $('.bcg').attr('data-center','background-position: 50% -450px;');
     }
 
 });

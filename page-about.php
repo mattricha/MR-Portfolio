@@ -39,6 +39,7 @@
                                 <li>
                                     <i>2005-2006</i> : Institut Universitaire Technologique (IUT) Lyon 1, FRANCE - first year (Computer Science)
                                 </li>
+                                <br>
                                 <li>
                                     <i>2006-2010</i> : Université de Montréal - bachelor's degree in computer science
                                 </li>
