@@ -12,7 +12,7 @@
                     <div class="blog-page-content">
                         <?php if (has_post_thumbnail()) : ?>
                             <section id="slide" class="homeSlide">
-                                <div class="bcg" data-center="background-position: 50% -250px;" data-top-bottom="background-position: 50% -350px;" data-anchor-target="#slide" style="background-image: url('<?php echo wp_get_attachment_url( get_post_thumbnail_id( $post->ID )); ?>')">
+                                <div class="bcg" data-center="background-position: 50% -200px;" data-top-bottom="background-position: 50% -300px;" data-anchor-target="#slide" style="background-image: url('<?php echo wp_get_attachment_url( get_post_thumbnail_id( $post->ID )); ?>')">
                                     <div class="hsContainer">
                                         <div class="hsContent" data-center="bottom: 200px" data-top="bottom: 1200px; opacity: 0.5" data-bottom="opacity: 1" data-anchor-target="#slide h1">
                                             <h1></h1>

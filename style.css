@@ -240,9 +240,7 @@ hr {
 
 .wrapper-footer {
   background-color: #121212;
-  height: 30px;
-  width: 100%;
-  margin-bottom: -5px; }
+  width: 100%; }
 
 .footer {
   width: 80%;
@@ -250,7 +248,7 @@ hr {
   margin: 0 auto;
   color: #bbbbbb;
   font-size: 12px;
-  padding-top: 7px; }
+  line-height: 30px; }
 
 .left-page-content, .right-page-content, .container {
   padding: 0;
@@ -263,7 +261,7 @@ hr {
 #temp_load {
   z-index: 10000;
   position: fixed;
-  bottom: 40px;
+  bottom: 50px;
   right: 20px; }
 
 #topPage {
@@ -271,7 +269,7 @@ hr {
   cursor: pointer;
   display: none;
   position: fixed;
-  bottom: 80px;
+  bottom: 90px;
   right: 20px; }
 
 /* about page */
