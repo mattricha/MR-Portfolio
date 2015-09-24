@@ -38,6 +38,9 @@ hr {
   margin: 5px;
   border-top: 1px solid #dedede !important; }
 
+*:focus {
+  outline: 0 !important; }
+
 /************************************
                CLASSES
 ************************************/

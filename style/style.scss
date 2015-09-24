@@ -256,6 +256,10 @@ hr{
     border-top: 1px solid $inactive-text-color !important;
 }
 
+*:focus {
+    outline: 0 !important;
+}
+
 
 /************************************
                CLASSES

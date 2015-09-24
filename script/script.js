@@ -1,5 +1,10 @@
 jQuery(document).ready(function ($) {
 
+    // IE tweek
+    if (!window.location.origin) {
+      window.location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port: '');
+    }
+
     var homepage = window.location.origin + "/";
     var $container = $('#masonry-grid');
 
@@ -90,7 +95,7 @@ jQuery(document).ready(function ($) {
 
     $(".grid-filter").click( function() {
         if(window.location.href != homepage){
-                window.location.href = homepage + "?c=" + $(this).attr('value');
+            window.location.href = homepage + "?c=" + $(this).attr('value');
         }
         else{
             cat = $(this).attr('value');
@@ -212,7 +217,7 @@ jQuery(document).ready(function ($) {
             forceHeight: false
         });
     }else{
-        $('.bcg').attr('data-center','background-position: 50% -450px;');
+        $('.bcg').css('background-position','center center');
     }
 
 });
