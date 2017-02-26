@@ -6,9 +6,6 @@ jQuery(document).ready(function ($) {
     }
 
     var homepage = window.location.origin + "/";
-    var $container = $('#masonry-grid');
-
-    // infinite scroll AJAX loader vars
     var page = 1;
     var loading = true;
     var $window = $(window);
@@ -16,14 +13,12 @@ jQuery(document).ready(function ($) {
     var titleHeader = '/ portfolio';
     var gridFilterID = '';
     var rightMenuOpen = false;
+    var $grid = $('#masonry-grid');
 
-    $container.imagesLoaded( function() {
-        $container.masonry({
-            itemSelector: '.grid-item',
-            columnWidth: 300,
-            isAnimated: true,
-            isFitWidth: true
-        });
+    $grid.masonry({
+        columnWidth: '.grid-sizer',
+        itemSelector: '.grid-item',
+        percentPosition: true
     });
 
     var load_posts = function(){
@@ -40,16 +35,14 @@ jQuery(document).ready(function ($) {
             success    : function(data){
                 $data = $(data);
                 if($data.length){
-                    $data.hide();
                     $data.imagesLoaded( function() {
-                        $container.append($data);
-                        $container.masonry('reloadItems');
-                        $container.masonry('layout');
+                        $grid.masonry()
+                        .append($data)
+                        .masonry('appended', $data)
+                        .masonry();
                     });
-                    $data.fadeIn(500, function(){
-                        $("#temp_load").fadeOut();
-                        loading = false;
-                    });
+                    $("#temp_load").fadeOut();
+                    loading = false;
                 } else {
                     $("#temp_load").remove();
                 }
@@ -64,11 +57,10 @@ jQuery(document).ready(function ($) {
     // load more masonry posts on scroll
     if (window.location.href == homepage){
         $window.scroll(function() {
-            var content_offset = $container.offset();
-            //console.log(content_offset.top);
+            var content_offset = $grid.offset();
             if(!loading && ($window.scrollTop() +
-                $window.height()) > ($container.scrollTop() +
-                $container.height() + content_offset.top)) {
+                $window.height()) > ($grid.scrollTop() +
+                $grid.height() + content_offset.top)) {
                     loading = true;
                     page++;
                     load_posts();
@@ -100,7 +92,7 @@ jQuery(document).ready(function ($) {
         else{
             cat = $(this).attr('value');
             page = 1;
-            $container.html('');
+            $grid.html('');
             load_posts();
             change_title($(this).attr('title'));
         }
@@ -109,12 +101,12 @@ jQuery(document).ready(function ($) {
 
     $(".grid-filter-all").click( function() {
         if(window.location.href != homepage){
-                window.location.href = homepage;
+            window.location.href = homepage;
         }
         else{
             cat = null;
             page = 1;
-            $container.html('');
+            $grid.html('');
             load_posts();
             titleHeader = '/ portfolio';
             change_title(titleHeader);
@@ -180,7 +172,7 @@ jQuery(document).ready(function ($) {
         cat = sectionID;
         page = 1;
         gridFilterID = '#grid-filter-' + cat;
-        $container.html('');
+        $grid.html('');
         load_posts();
         titleHeader = $(gridFilterID).attr('title');
         change_title(titleHeader);
@@ -199,15 +191,12 @@ jQuery(document).ready(function ($) {
 
     //search page
 
-    var $containerSearch = $('#masonry-search-grid');
+    var $gridSearch = $('#masonry-search-grid');
 
-    $containerSearch.imagesLoaded( function() {
-        $containerSearch.masonry({
-            itemSelector: '.grid-item',
-            columnWidth: 300,
-            isAnimated: true,
-            isFitWidth: true
-        });
+    $gridSearch.masonry({
+        columnWidth: '.grid-sizer',
+        itemSelector: '.grid-item',
+        percentPosition: true
     });
 
     // skrollr (parallax scrolling)

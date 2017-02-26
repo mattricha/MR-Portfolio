@@ -3,10 +3,8 @@
 <div class="wrapper-content">
     <div class="main-content">
         <?php get_sidebar(); ?>
-        <div class="right-page-content col-lg-9 col-md-9 col-sm-12 col-xs-12">
-            <div class="container">
-                <div class="header-title-3">/ <?php the_title(); ?></div>
-            </div>
+        <div class="right-page-content col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <h1 class="header-title-3">/ <?php the_title(); ?></h1>
             <div class="blog-page-container">
                 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
                     <div class="blog-page-content">
@@ -36,7 +34,6 @@
                                         <?php endif; ?> | Posted on <?php the_date(get_option('date_format')); ?> at <?php the_time(get_option('time_format')); ?>
                                     </h6>
                                 </div>
-                                <br>
                                 <div class="article-description">
                                     <?php the_content(); ?>
                                 </div>

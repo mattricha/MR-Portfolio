@@ -31,24 +31,28 @@ if (have_posts()) : while (have_posts()) : the_post(); ?>
                 </figure>
             <?php else : ?>
             <?php endif; ?>
-                <h2><a href="<?php the_permalink(); ?>" class="category-title-link"><?php the_title(); ?></a></h2>
-                <div class="category-post article-preview-txt">
-                    <h6 class="article-meta-extra">
-                            <?php if (has_category() && !has_category('Uncategorized')) : ?>
-                                <?php
-                                $categories = get_the_category();
-                                if ( ! empty( $categories ) ) {
-                                    echo '<a href="/?c=' . $categories[0]->term_id . '">' . $categories[0]->name . '</a>';
-                                }
-                                ?> |
-                            <?php else : ?>
-                            <?php endif; ?>
-                        Posted on <?php the_date(get_option('date_format')); ?> at <?php the_time(get_option('time_format')); ?>
-                    </h6>
-                   <?php the_excerpt(); ?>
-                </div>
+                <div class="article-txt">
+                    <h2><a href="<?php the_permalink(); ?>" class="category-title-link"><?php the_title(); ?></a></h2>
+                    <div class="category-post article-preview-txt">
+                        <h6 class="article-meta-extra">
+                                <?php if (has_category() && !has_category('Uncategorized')) : ?>
+                                    <?php
+                                    $categories = get_the_category();
+                                    if ( ! empty( $categories ) ) {
+                                        echo '<a href="/?c=' . $categories[0]->term_id . '">' . $categories[0]->name . '</a>';
+                                    }
+                                    ?> |
+                                <?php else : ?>
+                                <?php endif; ?>
+                            Posted on <?php the_date(get_option('date_format')); ?> at <?php the_time(get_option('time_format')); ?>
+                        </h6>
+                       <?php the_excerpt(); ?>
+                    </div>
 
-                <a href="<?php the_permalink(); ?>" class="btn btn-blue btn-block">Read More</a>
+                    <div class="read-more-wrapper">
+                        <a href="<?php the_permalink(); ?>" class="read-more">Read More</a>
+                    </div>
+                </div>
         </div>
     </div>
 <?php endwhile; ?>

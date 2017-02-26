@@ -8,12 +8,9 @@ Author URL: portfolio.matt-ric.com
 Tags: portfolio
 */
 
-
-
 /************************************
                IMPORTS
 ************************************/
-
 
 @import url(http://fonts.googleapis.com/css?family=Questrial);
 @import url(https://fonts.googleapis.com/css?family=Josefin+Sans:300);
@@ -21,7 +18,6 @@ Tags: portfolio
 /************************************
               VARIABLES
 ************************************/
-
 
 $font-content: 'Questrial', sans-serif !important;
 $font-header-title: 'Josefin Sans', sans-serif !important;
@@ -35,21 +31,19 @@ $xl-font-size: 24px;
 $xxl-font-size: 30px;
 $xxxl-font-size: 60px;
 $xxxxl-font-size: 120px;
-
 $dark-color: #121212;
 $darker-color: #111111;
 $light-color: #ffffff;
-$lighter-bgcolor: #eeeeee;
-$light-bgcolor: #cccccc;
+$lighter-bgcolor: #f4f4f4;
+$light-bgcolor: #e7e7e7;
 $dark-bgcolor: #121212;
 $lightdark-bgcolor: #222222;
-
 $primary-text-color: #121212;
 $secondary-text-color: #ffffff;
+$subtext-color: #777777;
 $md-white-text-color: #bbbbbb;
 $inactive-text-color: #dedede;
 $inactive-color-dark: #a8a8a8;
-
 $default-padding: 40px;
 $lg-padding: 30px;
 $md-padding: 20px;
@@ -62,23 +56,18 @@ $md-margin: 20px;
 $sm-margin: 10px;
 $xs-margin: 5px;
 $default-radius: 10px;
-
 $content-width: 1000px;
-$lg-media-width: 992px;
-$md-media-width: 900px;
-$sm-media-width: 768px;
-$xs-media-width: 500px;
-
+$lg-media: 1024px;
+$md-media: 900px;
+$sm-media: 768px;
+$xs-media: 420px;
 $footer-height: 30px;
-
 $zindex-top: 10000;
 $zindex-overlay: 11000;
-
 
 /************************************
                MIXINS
 ************************************/
-
 
 @mixin default-shadow{
     -moz-box-shadow: 0px 0px 10px 0px #000000;
@@ -151,7 +140,6 @@ $zindex-overlay: 11000;
     -moz-border-radius: 0 0 0 0;
     -webkit-border-radius: 0 0 0 0;
 }
-
 
 @mixin content-background-radius{
     border-radius: $default-radius $default-radius 0 0;
@@ -230,11 +218,9 @@ $zindex-overlay: 11000;
     transition: all 0.5s ease;
 }
 
-
 /************************************
                 HTML
 ************************************/
-
 
 html {
   height: 100%;
@@ -260,11 +246,9 @@ hr{
     outline: 0 !important;
 }
 
-
 /************************************
                CLASSES
 ************************************/
-
 
 .wrapper-header{
     position: fixed;
@@ -351,8 +335,6 @@ hr{
     .caret{
         border-top:4px solid $inactive-text-color;
     }
-
-
 }
 
 .logo{
@@ -425,21 +407,22 @@ hr{
 }
 
 .main-content{
-    width: 90%;
+    width: 100%;
+    max-width: 1080px;
     padding-bottom:100px;
+    margin: 0 auto;
 }
 
 .sidebar {
+    display: none;
     @include transition-quick-ease;
     min-width: 230px;
     max-width: 300px;
-    color: $inactive-text-color;
     .sidebar-content{
         @include transition-quick-ease;
-        @include box-shadow;
         padding: $sm-padding;
         margin: $sm-margin;
-        background-color: $lightdark-bgcolor;
+        color: $dark-color;
     }
     .sidebar-search{
         @include light-box-shadow;
@@ -461,7 +444,6 @@ hr{
     .sidebar-title{
         font-family: $font-header-title;
         font-size: $xl-font-size;
-        background-color: $light-bgcolor;
         color: $dark-color;
         padding-left: $xs-padding;
     }
@@ -472,13 +454,13 @@ hr{
 
 }
 
-
 .wrapper-footer{
     background-color: $dark-color;
     width: 100%;
 }
 
 .footer {
+    @include transition-quick-ease;
     width: 80%;
     max-width: $content-width;
     margin: 0 auto;
@@ -490,6 +472,10 @@ hr{
 .left-page-content, .right-page-content, .container{
     padding: 0;
     margin: 0;
+}
+
+.left-page-content{
+    display: none;
 }
 
 .container{
@@ -513,9 +499,7 @@ hr{
     right: 20px;
 }
 
-
 /* about page */
-
 
 .about-item{
     padding: $md-padding;
@@ -534,32 +518,34 @@ hr{
     }
 }
 
-
-
-
 /* article page */
 
 .blog-page-container{
     @include transition-quick-ease;
+    @include light-box-shadow;
     margin: 0;
     overflow: hidden;
-    //color: $md-white-text-color;
+    background-color: #fff;
+
     .blog-page-content{
-        padding: $md-padding;
-        padding-top: 5px !important;
+        padding: 0;
     }
     .blog-page-content-txt{
-        @include transition-quick-ease;
-        @include box-shadow;
-        padding: $md-padding;
-        background-color: $lightdark-bgcolor;
-        color: $light-color;
-    }
-    .article-description{
-        background-color: $lighter-bgcolor;
-        color: $dark-color;
-        font-size: $xmd-font-size;
-        padding: $lg-padding;
+        padding: 0;
+
+        .article-meta-extra{
+            color: $subtext-color;
+            margin: 0;
+            padding: $sm-padding $lg-padding;
+            background-color: $light-bgcolor;
+        }
+
+        .article-description{
+            color: $dark-color;
+            font-size: $xmd-font-size;
+            padding: $lg-padding;
+            background-color: $lighter-bgcolor;
+        }
     }
 }
 
@@ -567,7 +553,6 @@ hr{
 
 .bcg {
     height: 300px;
-    @include box-shadow;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -584,30 +569,60 @@ hr{
     background-color: $dark-color;
 }
 
-
 /* Masonry */
 
-#masonry-grid {
-  margin: 0 auto;
+#masonry-grid, #masonry-search-grid{
+  width: 100%;
 }
 
-#masonry-search-grid {
-  margin: 0 auto;
+.grid-sizer, .grid-item{
+    width: 33.333%;
 }
 
 .grid-item{
     cursor: pointer;
     padding: $xs-padding;
     margin: 0;
-    width: 300px;
-    //overflow: hidden;
     color: $md-white-text-color;
 
     .article-preview{
         @include transition-quick-ease;
         @include box-shadow;
-        padding: $md-padding;
         background-color: $lightdark-bgcolor;
+        overflow: hidden;
+
+        &:hover{
+            color: white;
+            img{
+                opacity: 0.3;
+                @include transition-scale;
+            }
+            .article-preview{
+                background-color: $dark-color;
+            }
+        }
+    }
+
+    .article-preview-image{
+        overflow: hidden;
+    }
+
+    .article-txt{
+        padding: $sm-padding $md-padding;
+        p{
+            padding: 15px 0;
+            margin: 0;
+        }
+        h2{
+            font-family: "Josefin Sans", sans-serif;
+            font-weight: 600;
+            margin: 5px 0;
+        }
+        h6{
+            color: $subtext-color;
+            font-size: 11px;
+            margin: 0;
+        }
     }
 
     img{
@@ -621,15 +636,9 @@ hr{
         color: $inactive-color-dark;
     }
 
-    &:hover{
-        color: white;
-        img{
-            opacity: 0.3;
-            @include transition-scale;
-        }
-        .article-preview{
-            background-color: $dark-color;
-        }
+    .read-more-wrapper{
+        width: 100%;
+        text-align: center;
     }
 }
 
@@ -645,54 +654,7 @@ hr{
 
 /*==========  Non-Mobile First Method  ==========*/
 
-
-@media (min-width:1500px){
-    .main-content, .header{
-        width: 80%;
-    }
-    #masonry-grid{
-        .grid-item, .grid-sizer{
-            //width:25%;
-        }
-    }
-}
-
-@media (max-width:1200px){
-    .main-content, .header{
-        width: 100%;
-    }
-    #masonry-grid{
-        .grid-item, .grid-sizer{
-            //width:50%;
-        }
-    }
-}
-
-@media (min-width:992px){
-    .sidebar{
-        display : block;
-    }
-    .wrapper-header{
-        display: none;
-    }
-}
-
-@media (max-width:992px){
-    .main-content, .header{
-        width: 100%;
-    }
-    .sidebar{
-        display : none;
-    }
-    .wrapper-header{
-        display: block;
-    }
-    .blog-page-content{
-        padding: 0 !important;
-    }
-}
-
-@media (max-width:768px){
+@media (max-width: $sm-media){
     h1{
         font-size: 24px;
     }
@@ -717,8 +679,8 @@ hr{
         width: 100%;
     }
     #masonry-grid{
-        .grid-item, .grid-sizer{
-            //width:100%;
+        .grid-sizer, .grid-item{
+            width: 50%;
         }
     }
     .bcg {
@@ -736,5 +698,16 @@ hr{
     }
     #topPage{
         right: 2px;
+    }
+}
+
+@media (max-width: $xs-media){
+    #masonry-grid{
+        .grid-sizer, .grid-item{
+            width: 100%;
+        }
+        .grid-item{
+            padding: 2px 0;
+        }
     }
 }

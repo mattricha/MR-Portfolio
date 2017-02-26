@@ -1,4 +1,4 @@
-<div class="left-page-content col-lg-3 col-md-3">
+<div class="left-page-content">
     <div class="sidebar">
         <div class="logo">
             <a href='/' title="MR Portfolio"><img src="<?php echo get_template_directory_uri(); ?>/images/logo_header.png" alt="logo" /></a>

@@ -2,12 +2,12 @@
     <div class="wrapper-page-title">
         <div class="page-title">
             <?php if (have_posts()) : ?>
-            <h2 class="page-content-title"><?php single_cat_title(__('Category Archives For: '), true); ?></h2>
+            <h1 class="page-content-title"><?php single_cat_title(__('Category Archives For: '), true); ?></h1>
             <div class="clearfix"></div>
         </div>
         <div class="main-content">
             <?php get_sidebar(); ?>
-            <div class="right-page-content col-lg-9 col-md-9 col-sm-12 col-xs-12">
+            <div class="right-page-content col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="container">
                     <div class="row" id="ms-container">
                         <?php while (have_posts()) : the_post(); ?>
