@@ -19,8 +19,8 @@ add_action('init', 'register_my_menus');
 
 if (function_exists('add_theme_support')) {
     add_theme_support('post-thumbnails');
-    set_post_thumbnail_size(300, 600, array( 'center', 'center'));
-    add_image_size('custom-blog-thumb', 300, 600, array( 'center', 'center') );
+    // set_post_thumbnail_size(350, 500, array( 'center', 'center'));
+    add_image_size('custom-blog-thumb', 350, 450);
     add_image_size('custom-sidebar-thumb', 80, 80, array( 'center', 'center') );
     if ( has_post_thumbnail() ) {
         the_post_thumbnail();
