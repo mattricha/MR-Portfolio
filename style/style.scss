@@ -513,13 +513,6 @@ a{
             @include transition-scale;
         }
 
-        .article-meta-extra, .article-txt h2{
-            width: 95%;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
         &:hover{
             background-color: $dark-color;
             color: white;
