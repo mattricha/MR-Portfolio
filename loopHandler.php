@@ -1,3 +1,5 @@
+<div class="grid-sizer"></div>
+<div class="gutter-sizer"></div>
 <?php
 
 define('WP_USE_THEMES', false);

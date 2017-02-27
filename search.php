@@ -5,11 +5,12 @@
     </div>
 </div>
     <div class="wrapper-content">
-        <div class="main-content">
+        <div class="grid-content">
             <h1 class="header-title-2">/ search</h1>
         <?php if (have_posts()) : ?>
             <div id="masonry-search-grid">
                 <div class="grid-sizer"></div>
+                <div class="gutter-sizer"></div>
                 <?php while (have_posts()) : the_post(); ?>
                     <div class="grid-item _<?php
                     $category = get_the_category( $post );

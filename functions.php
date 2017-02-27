@@ -91,7 +91,7 @@ if (function_exists('register_sidebar')) {
 // Register style sheet.
 function webtegrity_scripts() {
 
-    wp_enqueue_style( 'bootstrap_min_css', '//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css' );
+    wp_enqueue_style( 'bootstrap_min_css', '//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' );
     wp_enqueue_style( 'main_css', get_stylesheet_uri(), NULL, NULL, 'all' );
     wp_enqueue_script( 'jquery_3_1_1', get_template_directory_uri() . '/jquery-3.1.1.min.js');
     wp_enqueue_script( 'imagesloaded', get_template_directory_uri() . '/imagesloaded.pkgd.min.js');
@@ -129,3 +129,6 @@ function wpdocs_custom_excerpt_length( $length ) {
     return 30;
 }
 add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
+
+// disable admin navbar
+show_admin_bar(false);
