@@ -70,58 +70,34 @@ $zindex-overlay: 11000;
 ************************************/
 
 @mixin default-shadow{
-    -moz-box-shadow: 0px 0px 10px 0px #000000;
-    -webkit-box-shadow: 0px 0px 10px 0px #000000;
-    -o-box-shadow: 0px 0px 10px 0px #000000;
     box-shadow: 0px 0px 10px 0px #000000;
-    filter:progid:DXImageTransform.Microsoft.Shadow(color=#000000, Direction=NaN, Strength=10);
 }
 
 @mixin light-shadow{
-    -moz-box-shadow: 0px 0px 10px 0px #cfcfcf;
-    -webkit-box-shadow: 0px 0px 10px 0px #cfcfcf;
-    -o-box-shadow: 0px 0px 10px 0px #cfcfcf;
     box-shadow: 0px 0px 10px 0px #cfcfcf;
-    filter:progid:DXImageTransform.Microsoft.Shadow(color=#cfcfcf, Direction=NaN, Strength=10);
 }
 
 @mixin medium-shadow{
-    -moz-box-shadow: 0px 0px 15px 0px #333333;
-    -webkit-box-shadow: 0px 0px 15px 0px #333333;
-    -o-box-shadow: 0px 0px 15px 0px #333333;
     box-shadow: 0px 0px 15px 0px #333333;
-    filter:progid:DXImageTransform.Microsoft.Shadow(color=#333333, Direction=NaN, Strength=15);
 }
 
 @mixin large-shadow{
-    -moz-box-shadow: 0px 0px 100px 0px #000000;
-    -webkit-box-shadow: 0px 0px 100px 0px #000000;
-    -o-box-shadow: 0px 0px 100px 0px #000000;
     box-shadow: 0px 0px 100px 0px #000000;
-    filter:progid:DXImageTransform.Microsoft.Shadow(color=#000000, Direction=NaN, Strength=10);
 }
 
 @mixin box-shadow{
-    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
 }
 
 @mixin light-box-shadow{
-    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
-    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
 }
 
 @mixin right-side-shadow{
-    -webkit-box-shadow: 15px 0px 34px -26px rgba(0,0,0,0.75);
-    -moz-box-shadow: 15px 0px 34px -26px rgba(0,0,0,0.75);
     box-shadow: 15px 0px 34px -26px rgba(0,0,0,0.75);
 }
 
 @mixin no-shadow{
-    -webkit-box-shadow: 0px 0px 0px 0px rgba(255,255,255,0);
-    -moz-box-shadow: 0px 0px 0px 0px rgba(255,255,255,0);
     box-shadow: 0px 0px 0px 0px rgba(255,255,255,0);
 }
 
@@ -131,38 +107,26 @@ $zindex-overlay: 11000;
 
 @mixin default-radius{
     border-radius: $default-radius $default-radius $default-radius $default-radius;
-    -moz-border-radius: $default-radius $default-radius $default-radius $default-radius;
-    -webkit-border-radius: $default-radius $default-radius $default-radius $default-radius;
 }
 
 @mixin no-radius{
     border-radius: 0 0 0 0;
-    -moz-border-radius: 0 0 0 0;
-    -webkit-border-radius: 0 0 0 0;
 }
 
 @mixin content-background-radius{
     border-radius: $default-radius $default-radius 0 0;
-    -moz-border-radius: $default-radius $default-radius 0 0;
-    -webkit-border-radius: $default-radius $default-radius 0 0;
 }
 
 @mixin avatar-sm-image-radius{
     border-radius: 15px 15px 15px 15px;
-    -moz-border-radius: 15px 15px 15px 15px;
-    -webkit-border-radius: 15px 15px 15px 15px;
 }
 
 @mixin avatar-lg-image-radius{
     border-radius: 100px 100px 100px 100px;
-    -moz-border-radius: 100px 100px 100px 100px;
-    -webkit-border-radius: 100px 100px 100px 100px;
 }
 
 @mixin avatar-md-image-radius{
     border-radius: 35px 35px 35px 35px;
-    -moz-border-radius: 35px 35px 35px 35px;
-    -webkit-border-radius: 35px 35px 35px 35px;
 }
 
 @mixin default-border{
@@ -182,47 +146,25 @@ $zindex-overlay: 11000;
 @mixin transition-opacity{
     opacity: 1;
     transition: opacity .25s ease-in-out;
-    -moz-transition: opacity .25s ease-in-out;
-    -webkit-transition: opacity .25s ease-in-out;
 }
 
 @mixin transition-scale{
-    -webkit-transform:scale(1.05);
-    -moz-transform:scale(1.05);
-    -ms-transform:scale(1.05);
-    -o-transform:scale(1.05);
      transform:scale(1.05);
 }
 
 @mixin transition-lg-scale{
-    -webkit-transform:scale(1.5);
-    -moz-transform:scale(1.5);
-    -ms-transform:scale(1.5);
-    -o-transform:scale(1.5);
      transform:scale(1.5);
 }
 
 @mixin transition-ease{
-    -webkit-transition: all 1s ease-in-out;
-    -moz-transition: all 1s ease-in-out;
-    -o-transition: all 1s ease-in-out;
-    -ms-transition: all 1s ease-in-out;
     transition: all 1s ease-in-out;
 }
 
 @mixin transition-quick-ease{
-    -webkit-transition: all 0.5s ease-in-out;
-    -moz-transition: all 0.5s ease-in-out;
-    -o-transition: all 0.5s ease-in-out;
-    -ms-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
 }
 
 @mixin transition-superquick-ease{
-    -webkit-transition: all 0.2s ease-in-out;
-    -moz-transition: all 0.2s ease-in-out;
-    -o-transition: all 0.2s ease-in-out;
-    -ms-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
 }
 
@@ -277,10 +219,7 @@ a{
     z-index: 100;
     top: 0;
     background: #ffffff;
-    background: -moz-linear-gradient(top,  #ffffff 0%, #ededed 84%, #ededed 89%, #ffffff 100%);
-    background: -webkit-linear-gradient(top,  #ffffff 0%,#ededed 84%,#ededed 89%,#ffffff 100%);
     background: linear-gradient(to bottom,  #ffffff 0%,#ededed 84%,#ededed 89%,#ffffff 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=0 );
     width: 100%;
 }
 
@@ -378,10 +317,7 @@ a{
     top: 0;
     width: 100%;
     background: #3d3d3d;
-    background: -moz-linear-gradient(top,  #3d3d3d 0%, #252525 98%, #252525 99%, #606060 100%);
-    background: -webkit-linear-gradient(top,  #3d3d3d 0%,#252525 98%,#252525 99%,#606060 100%);
     background: linear-gradient(to bottom,  #3d3d3d 0%,#252525 98%,#252525 99%,#606060 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3d3d3d', endColorstr='#606060',GradientType=0 );
     padding: 40px $md-padding $sm-padding $md-padding;
     margin-top: -200px;
 
