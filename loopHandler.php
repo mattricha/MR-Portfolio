@@ -46,13 +46,13 @@ if (have_posts()) : while (have_posts()) : the_post(); ?>
                                     ?> |
                                 <?php else : ?>
                                 <?php endif; ?>
-                            Posted on <?php the_date(get_option('date_format')); ?> at <?php the_time(get_option('time_format')); ?>
+                                    <?php the_date(get_option('date_format')); ?>
                         </h6>
                        <?php the_excerpt(); ?>
                     </div>
 
                     <div class="read-more-wrapper">
-                        <a href="<?php the_permalink(); ?>" class="read-more">Read More</a>
+                        <a href="<?php the_permalink(); ?>" class="read-more">Voir Plus</a>
                     </div>
                 </div>
         </div>

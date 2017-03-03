@@ -26,7 +26,7 @@ jQuery(document).ready(function ($) {
     var load_posts = function(){
         $.ajax({
             type       : "GET",
-            data       : {numPosts : 6, pageNumber: page, catPosts : cat},
+            data       : {numPosts : 9, pageNumber: page, catPosts : cat},
             dataType   : "html",
             url        : "/wp-content/themes/MR-Portfolio/loopHandler.php",
             beforeSend : function(){
@@ -168,13 +168,4 @@ jQuery(document).ready(function ($) {
         }
       }
     );
-
-    // skrollr (parallax scrolling)
-    if(!(/Android|iPhone|iPad|iPod|BlackBerry|Windows Phone/i).test(navigator.userAgent || navigator.vendor || window.opera)){
-        skrollr.init({
-            forceHeight: false
-        });
-    }else{
-        $('.bcg').css('background-position','center center');
-    }
 });

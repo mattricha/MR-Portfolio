@@ -6,7 +6,7 @@
 </div>
     <div class="wrapper-content">
         <div class="grid-content">
-            <h1 class="header-title-2">/ search</h1>
+            <h1 class="header-title-2"><?php the_search_query() ?> <i class="glyphicon glyphicon-search"></i></h1>
         <?php if (have_posts()) : ?>
             <div id="masonry-search-grid">
                 <div class="grid-sizer"></div>
@@ -30,16 +30,12 @@
                                                     <?php the_category('  |  '); ?> |
                                                 <?php else : ?>
                                                 <?php endif; ?>
-                                            Posted on <?php the_date(get_option('date_format')); ?> at <?php the_time(get_option('time_format')); ?>
+                                                    <?php the_date(get_option('date_format')); ?>
                                         </h6>
                                        <?php the_excerpt(); ?>
                                     </div>
-                                    <?php if (has_tag()) : ?>
-                                        <p class="tags"><?php the_tags('', ' '); ?></p>
-                                    <?php else : ?>
-                                    <?php endif; ?>
                                     <div class="read-more-wrapper">
-                                        <a href="<?php the_permalink(); ?>" class="read-more">Read More</a>
+                                        <a href="<?php the_permalink(); ?>" class="read-more">Voir Plus</a>
                                     </div>
                                 </div>
                         </div>
@@ -47,7 +43,7 @@
                 <?php endwhile; ?>
             </div>
         <?php else : ?>
-                <div align="center"><h4>No posts were found.</h4></div>
+                <div align="center"><h4>Aucun Résultat.</h4></div>
         <?php endif; ?>
         </div><!-- END MAIN-CONTENT -->
     </div><!-- END wrap_1280 -->

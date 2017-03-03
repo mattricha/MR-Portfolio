@@ -12,7 +12,6 @@
 </head>
 
 <body>
-
     <div class="header-large">
         <div class="wrapper-header">
             <div class="header">
@@ -82,5 +81,3 @@
             </div>
         </div>
     </div>
-
-    <div id="skrollr-body">

@@ -349,13 +349,19 @@ a{
 }
 
 .header-title, .header-title-2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 200px;
-    line-height: 200px;
+    width: 100%;
     font-family: $font-header-title;
     font-size: $xxxxl-font-size;
     opacity: 0.2;
     margin: 0;
-    text-align: center;
+    i{
+        font-size: 80px;
+        padding-left: $md-padding;
+    }
 }
 
 .header-title-3{
@@ -372,7 +378,6 @@ a{
 
 .wrapper-content{
     min-height: 100vh;
-    height: 100%;
     width: 100%;
     padding-top: 20px;
 }
@@ -391,14 +396,16 @@ a{
 }
 
 .footer {
-    width: 80%;
     max-width: $content-width;
     margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: $md-white-text-color;
     font-size: $sm-font-size;
-    line-height: $footer-height;
 
     p{
+        padding: $xs-padding;
         margin: 0;
     }
 }
@@ -451,6 +458,13 @@ a{
         min-height: 100vh;
         background-color: $lighter-bgcolor;
     }
+    .header-img-container{
+        .header-img{
+            height: 400px;
+            background-position: center;
+            background-size: cover;
+        }
+    }
     .blog-page-content-txt{
         padding: 0;
 
@@ -465,20 +479,39 @@ a{
             color: $dark-color;
             font-size: $xmd-font-size;
             padding: $lg-padding;
+
+            .tags{
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                flex-wrap: wrap;
+                align-items: flex-start;
+                margin: $lg-margin 0;
+                i{
+                    font-size: 18px;
+                    padding-right: 10px;
+                    color: #ccc;
+                }
+                a{
+                    @include transition-superquick-ease;
+                    font-size: 13px;
+                    color: #fff;
+                    background: rgba(204,204,204,1);
+                    background: linear-gradient(to bottom, rgba(211,211,211,1) 0%,rgba(188,188,188,1) 75%,rgba(204,204,204,1) 79%,rgba(221,221,221,1) 100%);
+                    padding: 2px 8px;
+                    margin-right: 4px;
+                    margin-bottom: 4px;
+                    border-radius: 3px;
+                    opacity: 1;
+                    &:hover, &:active{
+                        opacity: 0.7;
+                        text-decoration: none;
+                        color: #fff;
+                    }
+                }
+            }
         }
     }
-}
-
-/* parallax scrollin */
-
-.bcg {
-    height: 400px;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.hsContainer{
-    background-color: $dark-color;
 }
 
 /* Masonry */
@@ -504,7 +537,7 @@ a{
 
     .article-preview{
         @include transition-quick-ease;
-        @include box-shadow;
+        @include light-box-shadow;
         position: relative;
         background-color: $lightdark-bgcolor;
         overflow: hidden;
@@ -533,6 +566,7 @@ a{
         @include transition-quick-ease;
         position: absolute;
         height: 80px;
+        width: 100%;
         bottom: 0;
         padding: $sm-padding $md-padding;
         background-color: rgba( 0, 0, 0, 0.7);
@@ -637,6 +671,10 @@ a{
         font-size: $xxxl-font-size;
         margin-top: $lg-margin;
         margin-bottom: $lg-margin;
+        i{
+            padding-left: 10px;
+            font-size: 40px;
+        }
     }
 
     .header-title-3{
@@ -672,12 +710,12 @@ a{
             }
         }
     }
-
-    .bcg {
-        height: 300px;
-    }
-
     .blog-page-container{
+        .header-img-container{
+            .header-img {
+                height: 300px;
+            }
+        }
         .blog-page-content-txt{
             .article-meta-extra{
                 padding: $sm-padding $md-padding;
@@ -722,6 +760,10 @@ a{
         margin-top: $lg-margin;
         margin-bottom: $md-margin;
         font-weight: 600;
+        i{
+            padding-left: 5px;
+            font-size: 30px;
+        }
     }
 
     .header-title-3{
@@ -745,13 +787,19 @@ a{
         .article-preview{
             height: 250px;
         }
-    }
-
-    .bcg {
-        height: 200px;
+        .article-preview-image a{
+            display: flex;
+            align-items: center;
+            height: 250px;
+        }
     }
 
     .blog-page-container{
+        .header-img-container{
+            .header-img {
+                height: 150px;
+            }
+        }
         .blog-page-content-txt{
             .article-meta-extra{
                 padding: $xs-padding $sm-padding;
