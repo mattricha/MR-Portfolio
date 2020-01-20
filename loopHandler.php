@@ -52,7 +52,7 @@ if (have_posts()) : while (have_posts()) : the_post(); ?>
                     </div>
 
                     <div class="read-more-wrapper">
-                        <a href="<?php the_permalink(); ?>" class="read-more">Voir Plus</a>
+                        <a href="<?php the_permalink(); ?>" class="read-more">See More</a>
                     </div>
                 </div>
         </div>

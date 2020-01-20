@@ -32,8 +32,8 @@
                         echo $output;
                     }
                 ?>
-                <a href="/competences" class="info-link">
-                    <p>Competences</p>
+                <a href="/skills" class="info-link">
+                    <p>Skills</p>
                 </a>
                 <a href="/info" class="info-link">
                     <p>Info</p>
