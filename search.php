@@ -35,7 +35,7 @@
                                        <?php the_excerpt(); ?>
                                     </div>
                                     <div class="read-more-wrapper">
-                                        <a href="<?php the_permalink(); ?>" class="read-more">Voir Plus</a>
+                                        <a href="<?php the_permalink(); ?>" class="read-more">See More</a>
                                     </div>
                                 </div>
                         </div>
@@ -43,7 +43,7 @@
                 <?php endwhile; ?>
             </div>
         <?php else : ?>
-                <div align="center"><h4>Aucun Résultat.</h4></div>
+                <div align="center"><h4>No results found.</h4></div>
         <?php endif; ?>
         </div><!-- END MAIN-CONTENT -->
     </div><!-- END wrap_1280 -->

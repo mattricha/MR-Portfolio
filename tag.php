@@ -35,7 +35,7 @@
                                        <?php the_excerpt(); ?>
                                     </div>
                                     <div class="read-more-wrapper">
-                                        <a href="<?php the_permalink(); ?>" class="read-more">Voir Plus</a>
+                                        <a href="<?php the_permalink(); ?>" class="read-more">See More</a>
                                     </div>
                                 </div>
                         </div>
